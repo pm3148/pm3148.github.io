@@ -6,7 +6,8 @@ output:
     toc_float: true
     theme: flatly
 ---
-#Load relevant libraries
+
+# Load relevant libraries
 ```{r}
 library(tidyverse)
 library(plotly)
@@ -21,8 +22,7 @@ View(rest)
 ```
 
 
-#Which borough has the highest average score? 
-
+# Which borough has the highest average score? 
 ```{r}
 rest %>%
   select(boro, score)%>%
@@ -31,7 +31,7 @@ rest %>%
   mutate(boro = fct_reorder(boro, avg_score))%>%
   plot_ly(x = ~boro, y = ~avg_score, color = ~boro, type= "bar", colors = "viridis")
 ```
-#What types of restaurants are most common in Manhattan? 
+# What types of restaurants are most common in Manhattan? 
 
 ```{r}
 rest %>%
@@ -44,7 +44,7 @@ rest %>%
   plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "viridis")%>%
   layout(xaxis = list(title = "Restaurant Type"), yaxis = list(title = 'Count'), showlegend=FALSE)
 ```
-#Is there any trend between time of year inspection was performed and inspection score? 
+# Is there any trend between time of year inspection was performed and inspection score? 
 ```{r}
 rest%>%
   mutate(inspection_date = as.Date(inspection_date))%>%
@@ -73,7 +73,7 @@ rest%>%
 ```
 Summer months tend to have higher average inspection scores. It's possible that people are happier/more positive in the summer and tend to score restaurants more positively also. 
 
-#What is the grade distribution for each Borough? 
+# What is the grade distribution for each Borough? 
 ```{r}
 rest%>%
   mutate(grade = factor(grade, levels = c("A", "B", "C", "Z", "P", "Not Yet Graded")),
