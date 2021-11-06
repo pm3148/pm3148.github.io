@@ -1,0 +1,44 @@
+---
+title: "Experience"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+## Academic Experience
+#### Columbia University  
+##### M.S in Biostatistics - Public Health Data Science Track - 2021-2023 
+\
+
+#### Emory University  
+##### B.S. in Quantitative Sciences conc. Neuroscience and Behavioral Biology - 2015-2019 
+\
+\
+
+## Professional Experience 
+#### MHP - A Porsche Company 2019-2021
+##### Data Science Consultant
+* Used R Shiny to create a Customer Insights Dashboard for an automotive importer using CRM Data to identify target 
+* Developed UiPath RPA to automate manual Check Requests process. By utilizing RPA and identifying administrative inefficiencies, total time required to complete requests decreased by 8 hours daily. 
+* Developed tool for automated cleaning of Automotive CRM Database by working with Back-End and Front-End developers to create a Pandas and Flask based Automated Data Cleaning Tool increasing efficiency by 33% and saving 600+ hours yearly. 
+* Managed company wide customer-facing chatbot pilot project. Conducted vendor evaluation, gathered requirements across departments, conducted use case prioritization, developed KPIs for evaluating success, and coordinated with internal and vendor development teams. 
+
+#### Anthem Inc.  2018-2018
+##### Payment Innovation Analytics Summer Intern 
+* Helped with creation of new performance-based care programs by constructing various clinical metric distributions from claims data pulled and manipulated using SQL Queries to identify top performers among provider groups and benchmarks for cost-savings sharing. 
+* Developed social determinants based risk model in R for risk-adjusted health insurance by merging census geolocation data with claims data and inputting geolocation features in multivariate regression to understand and account for social determinants in healthcare to aid in determining premiums. 
+* Collaborated with large technology sector employers to create Excel dashboards regarding procedure costs by different insurance plans using sampling methods to simulate distributions and help clients create strategies for reducing healthcare costs. 
+
+#### Center for Autism Research and Excellence - 2017 - 2017 
+##### Summer Statistician Intern 
+* Conducted EEG & IQ data collection and cleaned EEG graphs using R packages. 
+* Utilized R packages dplyr and ggplot to produce descriptive statistics, inferential statistics, and data visualizations for publication. 
+* Wrote corresponding 
+statistical analysis and explanation for publication examining cortical responses to speech in Autism Spectrum 
+
+
+
+
+
+Here's back to the [index](index.html) page. 

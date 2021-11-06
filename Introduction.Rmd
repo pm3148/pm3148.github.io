@@ -7,4 +7,8 @@ output:
     theme: cerulean
 ---
 
+Hello, I am Pooja Mukund. I am a first-year Master's Student at Columbia University's Mailman School of Public Health studying Biostatistics. 
+
+This page contains information about my academic and personal experience and includes email, Github link, and LinkedIn link.  
+
 Here's back to the [index](index.html) page. 
