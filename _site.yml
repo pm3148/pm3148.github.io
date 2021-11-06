@@ -1,7 +1,7 @@
 name: "Yay internet!"
 output_dir: "."
 navbar:
-  title: "Pooja Mukund"
+  title: "Home"
   right:
     - text: "Introduction"
       href: Introduction.html
