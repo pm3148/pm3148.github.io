@@ -7,6 +7,10 @@ navbar:
       href: Introduction.html
     - text: "Experience"
       href: Experience.html
+    - text: "Plotly"
+      href: Plotly.html
+    - text: "Dashboard"
+      href: flexdashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<pm3148@cumc.columbia.edu>
     - icon: fa-github fa-lg
@@ -15,4 +19,4 @@ navbar:
       href: https://www.linkedin.com/in/pooja-mukund-903b58130/
 output:
   html_document:
-    theme: cerulean
+    theme: flatly

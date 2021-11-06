@@ -4,7 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
+    theme: flatly
 ---
 ## Academic Experience
 #### Columbia University  
@@ -39,6 +39,7 @@ statistical analysis and explanation for publication examining cortical response
 
 
 
-
+Here is downloadable version of my resume: <a href="files/Pooja_Mukund_Resume_07182021_v2 (1).PDF">Download File</a>
+\
 
 Here's back to the [index](index.html) page. 

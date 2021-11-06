@@ -1,0 +1,84 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+library(lubridate)
+```
+
+```{r, include = FALSE}
+rest<- p8105.datasets::rest_inspec
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Distribution of Grade Ratings By Borough
+
+```{r}
+
+rest%>%
+  mutate(grade = factor(grade, levels = c("A", "B", "C", "Z", "P", "Not Yet Graded")),
+         boro = replace(boro, boro=="MANHATTAN", "Manhattan"),
+         boro = replace(boro, boro=="QUEENS", "Queens"),
+         boro = replace(boro, boro=="BROOKLYN", "Brooklyn"),
+         boro = replace(boro, boro=="BRONX", "Bronx"), 
+         boro = replace(boro, boro=="STATEN ISLAND", "Staten Island"))%>%
+  group_by(boro, grade)%>%
+  filter(boro!="Missing")%>%
+  count(grade)%>%
+  plot_ly(x = ~boro, y=~n, name =~grade, color = ~grade, type = "bar", colors="viridis")%>%
+  layout(xaxis = list(title = "Borough"), yaxis = list(title = 'Count'), legend = list(title = list(text = "<b> Borough <b>")), barmode = 'stack')
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Average Score by Month
+
+```{r}
+rest%>%
+  mutate(inspection_date = as.Date(inspection_date))%>%
+  mutate(month = month(inspection_date))%>%
+  mutate(month = replace(month, month == "1", "January"),
+         month = replace(month, month == "2", "February"),
+         month = replace(month, month == "3", "March"),
+         month = replace(month, month == "4", "April"),
+         month = replace(month, month == "5", "May"),
+         month = replace(month, month == "6", "June"),
+         month = replace(month, month == "7", "July"),
+         month = replace(month, month == "8", "August"),
+         month = replace(month, month == "9", "September"),
+         month = replace(month, month == "10", "October"),
+         month = replace(month, month == "11", "November"),
+         month = replace(month, month == "12", "December"), 
+         month = factor(month, levels = c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")))%>%
+  group_by(month)%>%
+  summarise(avg_score = mean(score, na.rm=TRUE))%>%
+  select(month, avg_score)%>%
+  plot_ly(x =~month, y=~avg_score, type = "scatter", colors = "viridis")%>%
+  add_trace(y = ~avg_score, mode = 'lines', color = "viridis")%>%
+  layout(xaxis = list(title = "Month"), yaxis = list(title = 'Average Inspection Score'), showlegend=FALSE)
+```
+
+### Top Restaurant Types in Manhattan
+
+```{r}
+rest %>%
+  select(boro, cuisine_description)%>%
+  filter(boro =="MANHATTAN")%>%
+  count(cuisine_description)%>%
+  mutate(cuisine_description = replace(cuisine_description, cuisine_description=="Latin (Cuban, Dominican, Puerto Rican, South & Central American)", "Latin"),
+    cuisine_description = fct_reorder(cuisine_description, -n))%>%
+  top_n(15)%>%
+  plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "viridis")%>%
+  layout(xaxis = list(title = "Restaurant Type"), yaxis = list(title = 'Count'), showlegend=FALSE)
+```

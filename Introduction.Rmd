@@ -4,7 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
+    theme: flatly
 ---
 
 Hello, I am Pooja Mukund. I am a first-year Master's Student at Columbia University's Mailman School of Public Health studying Biostatistics. 
